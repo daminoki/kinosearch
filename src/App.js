@@ -1,24 +1,31 @@
-import logo from './logo.svg';
+import React from 'react';
+import axios from 'axios';
+
 import './App.css';
 
+import Header from './components/Header';
+
+
 function App() {
+  const getRandomFilm = async () => {
+    try {
+      const data = await axios.get('https://api.kinopoisk.dev/v1/movie/random', {
+        headers: {
+          'x-api-key': '26VY6W0-4BRMYG8-MY8VVQ7-SVJRV2V'
+        }
+      });
+      console.log(data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  React.useEffect(() => {
+    getRandomFilm();
+  });
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Header />
   );
 }
 
