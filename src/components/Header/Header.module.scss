@@ -1,0 +1,41 @@
+@import '../../assets/styles/mixins.scss';
+
+.header {
+    position: fixed;
+    background-color: var(--primary-bg-color);
+    width: 100%;
+    max-height: 100px;
+
+    &__container {
+        @include container;
+        display: flex;
+        justify-content: space-between;
+        padding: 20px 40px;
+    }
+
+    &__search {
+        position: relative;
+        transition: all .15s ease-in-out;
+        border: none;
+        border-radius: 10px;
+        background-color: var(--secondary-bg-color);
+        padding: 10px 30px 10px 10px;
+        min-width: 400px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        color: var(--primary-text-color);
+
+        &::placeholder {
+            opacity: .5;
+            color: var(--primary-text-color);
+        }
+        
+        &:focus {
+            outline: none;
+            border: none;
+            background-color: var(--primary-text-color);
+            color: var(--primary-bg-color);
+        }
+    }
+}
