@@ -1,0 +1,23 @@
+@import '../../assets/styles/mixins.scss';
+
+.popular-shows {
+    @include container;
+
+    @include tablet {
+        padding-top: 20px;
+    }
+
+    background-color: var(--light-bg-color);
+    padding-top: 40px;
+
+    &__title {
+        @include h2;
+
+        @include pad {
+            @include txt_16;
+        }  
+
+        padding-bottom: 20px;
+        color: var(--primary-bg-color);
+    }
+}

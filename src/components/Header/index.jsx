@@ -9,7 +9,7 @@ const Header = () => {
         <img className={styles.header__logo} src='./img/logo.svg' />
         <div className={styles['header__search-container']}>
           <input className={styles.header__search} type='search' placeholder='Название фильма, сериала, актера или режиссера' />
-          <div className={styles['header__search-icon']}></div>
+          <button className={styles['header__search-icon']}></button>
         </div>
       </div>
     </header> 

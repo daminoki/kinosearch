@@ -5,11 +5,15 @@ import './assets/styles/variables.scss';
 import './App.css';
 
 import Header from './components/Header';
+import PopularTvShows from './components/PopularTvShows';
 
 function App() {
 
   return (
-    <Header />
+    <>
+      <Header />
+      <PopularTvShows />
+    </>
   );
 }
 

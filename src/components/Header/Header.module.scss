@@ -1,19 +1,32 @@
 @import '../../assets/styles/mixins.scss';
 
 .header {
-    position: fixed;
+    position: sticky;
     background-color: var(--primary-bg-color);
     width: 100%;
     max-height: 100px;
 
     &__container {
         @include container;
+
+        @include tablet {
+            padding: 20px;
+        }
+
+        @include pad {
+            padding: 15px;
+        }
+
         display: flex;
         justify-content: space-between;
         padding: 20px 40px;
     }
 
     &__search {
+        @include pad {
+            display: none;
+        }
+
         position: relative;
         transition: all .15s ease-in-out;
         border: none;
@@ -58,6 +71,12 @@
     }
 
     &__search-icon {
+        @include pad {
+            right: 0;
+            left: unset;
+            cursor: pointer;
+        }
+
         position: absolute;
         top: 50%;
         left: 10px;
