@@ -19,7 +19,7 @@
         border: none;
         border-radius: 10px;
         background-color: var(--secondary-bg-color);
-        padding: 10px 30px 10px 10px;
+        padding: 10px 10px 10px 40px;
         min-width: 400px;
         overflow: hidden;
         text-overflow: ellipsis;
@@ -30,12 +30,41 @@
             opacity: .5;
             color: var(--primary-text-color);
         }
+
+        &::-webkit-search-cancel-button {
+            appearance: none;
+            margin-left: 10px;
+            background: url('../../../public/img/cancel-btn.svg') no-repeat 50% 50%;
+            background-size: 24px;
+            cursor: pointer;
+            width: 24px;
+            height: 24px;
+        }
         
         &:focus {
             outline: none;
             border: none;
             background-color: var(--primary-text-color);
             color: var(--primary-bg-color);
-        }
+
+            & + .header__search-icon {
+                background-image: url('../../../public/img/search-icon-focused.svg');
+            }
+        } 
+    }
+
+    &__search-container {
+        position: relative;
+    }
+
+    &__search-icon {
+        position: absolute;
+        top: 50%;
+        left: 10px;
+        transform: translateY(-50%);
+        background-image: url('../../../public/img/search-icon.svg');
+        background-size: 24px 24px;
+        width: 24px;
+        height: 24px;
     }
 }

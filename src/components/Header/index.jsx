@@ -7,7 +7,10 @@ const Header = () => {
     <header className={styles.header}>
       <div className={styles.header__container}>
         <img className={styles.header__logo} src='./img/logo.svg' />
-        <input className={styles.header__search} type='search' placeholder='Название фильма, сериала, актера или режиссера' />
+        <div className={styles['header__search-container']}>
+          <input className={styles.header__search} type='search' placeholder='Название фильма, сериала, актера или режиссера' />
+          <div className={styles['header__search-icon']}></div>
+        </div>
       </div>
     </header> 
   );
