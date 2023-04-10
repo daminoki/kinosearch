@@ -6,7 +6,7 @@ import styles from './PopularTvShows.module.scss';
 const PopularTvShows = () => {
   const [shows, setShows] = React.useState([]);
 
-  const getShows = async () => {
+  const fetchShows = async () => {
     try {
       const { data } = await axios.get('https://api.kinopoisk.dev/v1/movie?page=1&limit=10&type=tv-series&top250=%21null', {
         headers: {
@@ -21,8 +21,12 @@ const PopularTvShows = () => {
   };
 
   React.useEffect(() => {
-    getShows();
-  });
+    async function fetchData() {
+      await fetchShows();
+    }
+
+    fetchData();
+  }, []);
 
   return (
     <div className={styles['popular-shows']}>
