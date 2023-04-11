@@ -20,4 +20,33 @@
         padding-bottom: 20px;
         color: var(--primary-bg-color);
     }
+
+    &__list {
+        display: flex;
+        gap: 10px;
+    }
+
+    &__item {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        max-width: 150px;
+    }
+
+    &__name {
+        @include txt_16;
+
+        margin-top: 10px;
+        font-weight: 500;
+    }
+
+    &__release-year, &__type {
+        @include txt_13;
+
+        color: var(--contrast-text-color);
+    }
+
+    &__details {
+        margin-top: auto;
+    }
 }
