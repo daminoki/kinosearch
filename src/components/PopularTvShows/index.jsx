@@ -33,6 +33,11 @@ const PopularTvShows = () => {
   const showsSlider = new Swiper('#shows-slider', {
     loop: true,
     spaceBetween: '10',
+
+    navigation: {
+      nextEl: '.popular-shows__next-btn',
+      prevEl: '.popular-shows__prev-btn',
+    },
   });
 
   return (
@@ -51,6 +56,8 @@ const PopularTvShows = () => {
             </li>
           ))}
         </div>
+        <button className={styles['popular-shows__prev-btn']}></button>
+        <button className={styles['popular-shows__next-btn']}></button>
       </ul>
     </div>
   );
