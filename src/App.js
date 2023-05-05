@@ -6,6 +6,7 @@ import './App.css';
 
 import Header from './components/Header';
 import PopularTvShows from './components/PopularTvShows';
+import RandomTitle from './components/RandomTitle';
 
 function App() {
 
@@ -13,6 +14,7 @@ function App() {
     <>
       <Header />
       <PopularTvShows />
+      <RandomTitle />
     </>
   );
 }

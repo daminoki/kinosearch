@@ -1,1 +1,74 @@
 @import '../../assets/styles/mixins.scss';
+
+.random-movie {
+    @include container;
+
+    @include tablet {
+        padding-top: 20px;
+    }
+
+    background-color: var(--primary-bg-color);
+    padding-top: 40px;
+    padding-bottom: 40px;
+    
+    &__title {
+        @include h2;
+
+        @include pad {
+            @include txt_16;
+        }
+        padding: 0 0 20px;  
+        color: var(--primary-text-color);
+    }
+
+    &__img {
+        flex-basis: 25%;
+        img {
+            display: block;
+            width: 100%;
+            max-width: 400px;
+            height: 100%;
+            max-height: 550px;
+            object-fit: cover;
+        }
+    }
+
+    &__item {
+        display: flex;
+        gap: 40px;
+    }
+
+    &__column {
+        display: flex;
+        flex-basis: 75%;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    &__info {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    &__property {
+        @include txt_16;
+        color: var(--primary-text-color);
+        font-weight: 700;
+        span {
+            margin: 0 10px 0 0;
+            font-weight: 400;
+        }
+    }
+
+    &__btn {
+        margin: 15px 0 0 0;
+        border-radius: 20px;
+        background-color: var(--light-bg-color);
+        cursor: pointer;
+        padding: 10px 20px;
+        width: fit-content;
+        font-weight: 700;
+    }
+}
+    
