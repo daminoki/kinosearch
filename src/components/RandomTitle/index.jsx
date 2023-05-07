@@ -31,7 +31,11 @@ const RandomTitle = () => {
 
   return (
     <div className={styles['random-movie']}>
-      <p className={styles['random-movie__title']}>Выбери случайный фильм на вечер</p>
+      <p className={styles['random-movie__title']}>Случайный фильм на вечер</p>
+      {!randomMovie && 
+        <div className={styles['center-body']}>
+          <div className={styles['loader-circle-2']}></div>
+        </div>}
       {randomMovie && 
         <div className={styles['random-movie__item']}>
           <div className={styles['random-movie__img']}>
@@ -43,11 +47,12 @@ const RandomTitle = () => {
               <p className={styles['random-movie__property']}>Описание: <span>{randomMovie.description ? randomMovie.description : '-'}</span></p>
               <p className={styles['random-movie__property']}>Жанр: <span>{randomMovie.genres[0].name}</span></p>
               <p className={styles['random-movie__property']}>Рейтинг кинопоиска: <span>{randomMovie.rating.kp}</span></p>
+              <p className={styles['random-movie__property']}>Рейтинг imdb: <span>{randomMovie.rating.imdb}</span></p>
               <p className={styles['random-movie__property']}>Год выпуска: <span>{randomMovie.year}</span></p>
-              <p className={styles['random-movie__property']}>Время: <span>{randomMovie.movieLength ? randomMovie.movieLength : '-'}</span></p>
-              <p className={styles['random-movie__property']}>Страна: {randomMovie.countries.map((country) => (<span key={country.id}>{country.name}</span>))}</p>
+              <p className={styles['random-movie__property']}>Продолжительность: <span>{randomMovie.movieLength ? `${randomMovie.movieLength} минуты` : '-'}</span></p>
+              <p className={styles['random-movie__property']}>Страна: <span>{randomMovie.countries[0].name}</span></p>
+              <p className={styles['random-movie__property']}>Возрастной рейтинг: <span>{randomMovie.ageRating ? `${randomMovie.ageRating}+` : '-'}</span></p>
             </div>
-            <button className={styles['random-movie__btn']} onClick={fetchRandomMovie}>Выбрать другой фильм</button>
           </div>
         </div> 
       }
