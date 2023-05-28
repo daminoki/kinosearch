@@ -8,6 +8,7 @@ import {
 import './index.css';
 import App from './App';
 import Films from './pages/Films';
+import FilmsList from './components/FilmsList';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -15,6 +16,7 @@ root.render(
     <Routes>
       <Route path="/" element={<App />} />
       <Route path="/films" element={<Films />} />
+      <Route path="/films/:id" element={<FilmsList />} />
     </Routes>
   </BrowserRouter>,
 );

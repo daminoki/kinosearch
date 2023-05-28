@@ -10,13 +10,13 @@ function Nav() {
       <ul className={styles.nav__list}>
         <li className={styles.nav__item}>
           <Link to="/" className={styles.nav__link}>
-            <img src='./img/home-icon.svg' alt="Главная" width="24" height="24"></img>
+            <img src='/img/home-icon.svg' alt="Главная" width="24" height="24"></img>
             Главная
           </Link>
         </li>
         <li className={styles.nav__item}>
           <Link to="/films" className={styles.nav__link}>
-            <img src='./img/film-icon.svg' alt="Фильмы" width="24" height="24"></img>
+            <img src='/img/film-icon.svg' alt="Фильмы" width="24" height="24"></img>
             Фильмы
           </Link>
         </li>

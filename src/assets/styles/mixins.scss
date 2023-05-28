@@ -45,6 +45,13 @@
     font-style: normal;
 }
 
+@mixin h4 {
+    line-height: 120%;
+    font-size: 20px;
+    font-weight: 400;
+    font-style: normal;
+}
+
 @mixin txt_16 {
     line-height: 120%;
     font-size: 16px;
