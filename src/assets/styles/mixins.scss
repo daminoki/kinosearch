@@ -33,8 +33,15 @@
 
 @mixin h2 {
     line-height: 125%;
-    font-size: 24px;
+    font-size: 32px;
     font-weight: 700;
+    font-style: normal;
+}
+
+@mixin h3 {
+    line-height: 125%;
+    font-size: 24px;
+    font-weight: 400;
     font-style: normal;
 }
 

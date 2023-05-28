@@ -43,7 +43,7 @@ const RandomTitle = () => {
           </div>
           <div className={styles['random-movie__column']}>
             <div className={styles['random-movie__info']}>
-              <p className={styles['random-movie__property']}>Название: <span>{randomMovie.name}</span></p>
+              <p className={styles['random-movie__name']}>{randomMovie.name}</p>
               <p className={styles['random-movie__property']}>Описание: <span>{randomMovie.description ? randomMovie.description : '-'}</span></p>
               <p className={styles['random-movie__property']}>Жанр: <span>{randomMovie.genres[0].name}</span></p>
               <p className={styles['random-movie__property']}>Рейтинг кинопоиска: <span>{randomMovie.rating.kp}</span></p>
@@ -52,6 +52,7 @@ const RandomTitle = () => {
               <p className={styles['random-movie__property']}>Продолжительность: <span>{randomMovie.movieLength ? `${randomMovie.movieLength} минуты` : '-'}</span></p>
               <p className={styles['random-movie__property']}>Страна: <span>{randomMovie.countries[0].name}</span></p>
               <p className={styles['random-movie__property']}>Возрастной рейтинг: <span>{randomMovie.ageRating ? `${randomMovie.ageRating}+` : '-'}</span></p>
+              {randomMovie.videos.trailers[0] && <a className={styles['random-movie__btn']} target="_blank" href={randomMovie.videos.trailers[0].url} rel="noreferrer">Смотреть трейлер</a>}
             </div>
           </div>
         </div> 
