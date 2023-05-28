@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import styles from './Nav.module.scss';
 
@@ -8,16 +9,16 @@ function Nav() {
     <div className={styles.nav}>
       <ul className={styles.nav__list}>
         <li className={styles.nav__item}>
-          <a href="#" className={styles.nav__link}>
-            <img src='./img/home-icon.svg' alt="На главную" width="24" height="24"></img>
+          <Link to="/" className={styles.nav__link}>
+            <img src='./img/home-icon.svg' alt="Главная" width="24" height="24"></img>
             Главная
-          </a>
+          </Link>
         </li>
         <li className={styles.nav__item}>
-          <a href="#" className={styles.nav__link}>
+          <Link to="/films" className={styles.nav__link}>
             <img src='./img/film-icon.svg' alt="Фильмы" width="24" height="24"></img>
             Фильмы
-          </a>
+          </Link>
         </li>
       </ul>
     </div>
