@@ -1,0 +1,31 @@
+@import '../../assets/styles/mixins.scss';
+
+.nav {
+    position: sticky;
+    flex-basis: 25%;
+    border-right: 1px solid #DCDCDC;
+    background-color: var(--light-bg-color);
+    padding: 40px;
+
+    &__list {
+        display: flex;
+        position: sticky;
+        top: 124px;
+        flex-direction: column;
+        gap: 20px
+    }
+
+    &__link {
+        @include txt_16;
+
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        transition: color .2s ease-out;
+        color: var(--primary-bg-color);
+
+        &:hover {
+            color: var(--contrast-text-color);
+        }
+    }
+}
