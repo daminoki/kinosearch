@@ -1,7 +1,8 @@
 import React from 'react';
-import axios from 'axios';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { SwiperButtonNext, SwiperButtonPrev } from '../../utils/SwiperNavigationBtns';
+
+import api from '../../api';
 
 import styles from './PopularTvShows.module.scss';
 import 'swiper/css';
@@ -9,17 +10,17 @@ import 'swiper/css';
 const PopularTvShows = () => {
   const [shows, setShows] = React.useState(null);
 
+  const searchParams = {
+    page: '1',
+    limit: '15',
+    type: 'tv-series',
+    top250: '!null',
+  };
+
   const fetchShows = async () => {
-    try {
-      const { data } = await axios.get('https://api.kinopoisk.dev/v1/movie?page=1&limit=10&type=tv-series&top250=%21null', {
-        headers: {
-          'x-api-key': '26VY6W0-4BRMYG8-MY8VVQ7-SVJRV2V'
-        }
-      });
-      setShows(data.docs);
-    } catch (error) {
-      console.log(error);
-    }
+    const data = await api.movie.getPopularTvShows(searchParams);
+    console.log('d', data.docs);
+    setShows(data.docs);
   };
 
   React.useEffect(() => {
