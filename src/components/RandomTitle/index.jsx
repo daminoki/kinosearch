@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+
+import api from '../../api';
 
 import styles from './RandomTitle.module.scss';
 
@@ -7,16 +8,8 @@ const RandomTitle = () => {
   const [randomMovie, setRandomMovie] = useState(null);
 
   const fetchRandomMovie = async () => {
-    try {
-      const { data } = await axios.get('https://api.kinopoisk.dev/v1.3/movie/random', {
-        headers: {
-          'x-api-key': '26VY6W0-4BRMYG8-MY8VVQ7-SVJRV2V'
-        }
-      });
-      setRandomMovie(data);
-    } catch (error) {
-      console.log(error);
-    }
+    const data = await api.movie.getRandomTitle();
+    setRandomMovie(data);
   };
 
   useEffect(() => {
@@ -26,8 +19,6 @@ const RandomTitle = () => {
 
     fetchData();
   }, []);
-
-  console.log(randomMovie);
 
   return (
     <div className={styles['random-movie']}>
