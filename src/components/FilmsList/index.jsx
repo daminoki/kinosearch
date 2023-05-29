@@ -8,6 +8,7 @@ import styles from './FilmsList.module.scss';
 
 function FilmsList ({ title }) {
   const {id} = useParams();
+  console.log(123);
 
   const [films, setFilms] = React.useState(null);
 
