@@ -1,0 +1,32 @@
+@import '../../assets/styles/mixins.scss';
+
+.films-compilation {
+    display: flex;
+    flex-direction: column;
+    padding: 40px;
+
+    &__item {
+        display: flex;
+        gap: 40px;
+        align-items: center;
+        transition: background-color 0.2s ease-out;
+        cursor: pointer;
+        padding: 10px;
+
+        &:hover {
+            background-color: #D9D9D9;
+        }
+    }
+
+    &__title {
+        @include h4;
+        margin: 0 0 5px;
+        color: var(--primary-bg-color);
+        font-weight: 700
+    }
+
+    &__count {
+        @include txt_16;
+        color: var(--primary-bg-color);
+    }
+}

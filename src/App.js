@@ -2,18 +2,19 @@ import React from 'react';
 
 import './assets/styles/reset.scss';
 import './assets/styles/variables.scss';
-import './App.css';
+import './App.scss';
 
-import Header from './components/Header';
+import BaseLayout from './components/BaseLayout';
 import PopularTvShows from './components/PopularTvShows';
+import RandomTitle from './components/RandomTitle';
 
 function App() {
 
   return (
-    <>
-      <Header />
+    <BaseLayout>
       <PopularTvShows />
-    </>
+      <RandomTitle />
+    </BaseLayout>
   );
 }
 
