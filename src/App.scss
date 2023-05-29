@@ -1,0 +1,12 @@
+@import './assets/styles/mixins.scss';
+
+.page {
+  @include container;
+
+  display: flex;
+
+  &__column {
+    flex-basis: 75%;
+    background-color: var(--light-bg-color);
+  }
+}
