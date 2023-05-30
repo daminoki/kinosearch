@@ -19,7 +19,6 @@ const PopularTvShows = () => {
 
   const fetchShows = async () => {
     const data = await api.movie.getPopularTvShows(searchParams);
-    console.log('d', data.docs);
     setShows(data.docs);
   };
 

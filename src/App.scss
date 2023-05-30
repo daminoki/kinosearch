@@ -6,7 +6,7 @@
   display: flex;
 
   &__column {
-    flex-basis: 75%;
     background-color: var(--light-bg-color);
+    width: 80%;
   }
 }

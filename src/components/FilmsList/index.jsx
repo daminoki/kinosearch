@@ -1,28 +1,26 @@
 import React from 'react';
 import { Link, useParams } from 'react-router-dom';
-import axios from 'axios';
+
+import api from '../../api';
 
 import BaseLayout from '../BaseLayout';
-
 import styles from './FilmsList.module.scss';
 
 function FilmsList ({ title }) {
   const {id} = useParams();
-  console.log(123);
 
   const [films, setFilms] = React.useState(null);
 
+  const searchParams = {
+    page: '1',
+    limit: '50',
+    type: 'movie',
+    [id]: '!null',
+  };
+
   const fetchFilms = async () => {
-    try {
-      const { data } = await axios.get(`https://api.kinopoisk.dev/v1/movie?page=1&limit=50&type=movie&${id}=%21null`, {
-        headers: {
-          'x-api-key': '26VY6W0-4BRMYG8-MY8VVQ7-SVJRV2V'
-        }
-      });
-      setFilms(data.docs);
-    } catch (error) {
-      console.log(error);
-    }
+    const data = await api.movie.getFilmsList(searchParams);
+    setFilms(data.docs);
   };
 
   React.useEffect(() => {
