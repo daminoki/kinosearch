@@ -7,6 +7,7 @@ import './App.scss';
 import BaseLayout from './components/BaseLayout';
 import PopularTvShows from './components/PopularTvShows';
 import RandomTitle from './components/RandomTitle';
+import SvgList from './components/SvgList';
 
 function App() {
 
@@ -14,6 +15,7 @@ function App() {
     <BaseLayout>
       <PopularTvShows />
       <RandomTitle />
+      <SvgList />
     </BaseLayout>
   );
 }

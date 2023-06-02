@@ -3,7 +3,10 @@
         "stylelint-scss",
         "stylelint-order"
     ],
-    "extends": "stylelint-config-concentric-order",
+    "extends": [
+        "stylelint-config-concentric-order",
+        "stylelint-config-recommended-scss"
+    ],
     "rules": {
         "at-rule-no-unknown": null,
         "scss/at-rule-no-unknown": true
