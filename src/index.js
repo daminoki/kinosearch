@@ -12,11 +12,14 @@ import FilmsList from './components/FilmsList';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <BrowserRouter>
-    <Routes>
-      <Route path="/" element={<App />} />
-      <Route path="/films" element={<Films />} />
-      <Route path="/films/:id" element={<FilmsList />} />
-    </Routes>
-  </BrowserRouter>,
+  <React.StrictMode>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<App />} />
+        <Route path="/films" element={<Films />} />
+        <Route path="/films/:id" element={<FilmsList />} />
+      </Routes>
+    </BrowserRouter>
+  </React.StrictMode>
+  ,
 );

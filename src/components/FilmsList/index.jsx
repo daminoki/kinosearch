@@ -72,6 +72,10 @@ function FilmsList () {
           <img src={state.img} alt={state.title} width='160' height='160'></img>
         </div>
       </div>
+      <div className={styles['films-list__filter']}>
+        <button className={styles['films-list__filter-item']}>С высоким рейтингом</button>
+        <button className={styles['films-list__filter-item']}>Вышедшие</button>
+      </div>
       <div className={styles['films-list__body']}>
         {!films && <Loader />}
         {films &&
