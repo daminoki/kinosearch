@@ -1,4 +1,4 @@
-@import '../../assets/styles/mixins.scss';
+@import '../../assets/styles/mixins';
 
 .films-list {
     &__back {
@@ -30,7 +30,129 @@
 
     &__title {
         @include h2;
-        padding: 40px 40px 20px;
+        margin: 0 0 20px;
         color: var(--primary-bg-color);
+    };
+
+    &__header {
+        display: flex;
+        gap: 20px;
+        padding: 40px;
+    };
+
+    &__img {
+        width: 160px;
+        min-width: 160px;
+        height: 160px;
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
     }
+
+    &__description {
+        @include txt_16;
+        color: var(--primary-bg-color);
+    };
+
+    &__body {
+        padding: 0 40px 40px;
+    };
+
+    &__list {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    };
+
+    &__item {
+        display: flex;
+        gap: 20px;
+        border-bottom: 1px solid #D9D9D9;
+        padding: 10px 0
+    };
+    
+    &__poster {
+        width: 108px;
+        min-width: 108px;
+        height: 100%;
+
+        img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    };
+
+    &__info {
+        display: flex;
+        gap: 20px;
+    };
+
+    &__count {
+        @include h4;
+        color: var(--primary-bg-color);
+        font-weight: 700;
+    };
+
+    &__name {
+        @include h3;
+        margin: 0 0 5px;
+        color: var(--primary-bg-color);
+        font-weight: 700;
+    }
+
+    &__main-info {
+        display: flex;
+        flex-direction: column;
+    };
+
+    &__secondary-info {
+        display: flex;
+        gap: 5px;
+        margin: 0 0 10px
+    }
+
+    &__year {
+        @include txt_13;
+        display: flex;
+        gap: 5px;
+        align-items: center;
+        color: var(--contrast-text-color);
+        &::after {
+            display: block;
+            border-radius: 50%;
+            background-color: #D9D9D9;
+            width: 5px;
+            height: 5px;
+            content: '';
+        }
+    };
+
+    &__country, &__genres {
+        @include txt_13;
+        color: var(--primary-bg-color)
+    };
+
+    &__country {
+        display: flex;
+        gap: 5px;
+        align-items: center;
+        &::after {
+            display: block;
+            border-radius: 50%;
+            background-color: #D9D9D9;
+            width: 5px;
+            height: 5px;
+            content: '';
+        }
+    };
+    
+    &__summary {
+        @include txt_16;
+        margin: 0 0 10px;
+        color: var(--primary-bg-color);
+    };
 }

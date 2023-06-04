@@ -16,6 +16,12 @@
         &:hover {
             background-color: #D9D9D9;
         }
+
+        img {
+            width: 88px;
+            height: 88px;
+            object-fit: cover;
+        }
     }
 
     &__title {
