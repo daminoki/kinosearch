@@ -37,9 +37,11 @@
 
     &__name {
         @include txt_16;
+        display: inline-block;
 
         margin-top: 5px;
-        font-weight: 500;
+        color: var(--primary-bg-color);
+        font-weight: 500
     }
 
     &__release-year, &__type {

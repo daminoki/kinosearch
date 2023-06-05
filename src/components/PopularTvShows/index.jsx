@@ -1,6 +1,7 @@
 import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { SwiperButtonNext, SwiperButtonPrev } from '../../utils/SwiperNavigationBtns';
+import { Link } from 'react-router-dom';
 
 import api from '../../api';
 import Loader from '../Loader';
@@ -43,12 +44,14 @@ const PopularTvShows = () => {
         >
           {shows.map((show) => (
             <SwiperSlide key={show.id} className={styles['popular-shows__item']}>
-              <img src={show.poster.previewUrl} alt='Постер' width='150' height='225' />
-              <span className={styles['popular-shows__name']}>{show.name}</span>
-              <div className={styles['popular-shows__details']}>
-                <span className={styles['popular-shows__release-year']}>{show.releaseYears[0].start}-{show.releaseYears[0].end ? show.releaseYears[0].end : '...'}, </span>
-                <span className={styles['popular-shows__type']}>{show.genres[0].name}</span>
-              </div>
+              <Link to={`catalog/${show.id}`}>
+                <img src={show.poster.previewUrl} alt='Постер' width='150' height='225' />
+                <span className={styles['popular-shows__name']}>{show.name}</span>
+                <div className={styles['popular-shows__details']}>
+                  <span className={styles['popular-shows__release-year']}>{show.releaseYears[0].start}-{show.releaseYears[0].end ? show.releaseYears[0].end : '...'}, </span>
+                  <span className={styles['popular-shows__type']}>{show.genres[0].name}</span>
+                </div>
+              </Link>
             </SwiperSlide>
           ))}
           <SwiperButtonNext>
