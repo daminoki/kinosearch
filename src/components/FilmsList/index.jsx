@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, useParams, useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 import api from '../../api';
 
@@ -8,9 +8,7 @@ import Loader from '../Loader';
 import styles from './FilmsList.module.scss';
 
 function FilmsList () {
-  const { id } = useParams();
   const { state } = useLocation();
-  console.log(id);
 
   const [films, setFilms] = React.useState(null);
 
@@ -48,15 +46,20 @@ function FilmsList () {
     return (value && value !== null) ? value : film.alternativeName;
   };
 
-  const getFilmList = (countriesArray) => {
+  const getFilmList = (array) => {
     return (
-      countriesArray.map((country, index) => (
-        <span key={index}>{country.name}{index != (countriesArray.length - 1) ? ',' : ''} </span>
+      array.map((country, index) => (
+        (index <= 1) ? <span key={index}>{(index === 1) ? ',' : ''} {country.name}</span> : ' '
       ))
     );
   };
 
-  console.log(films);
+  const sortFilms = async (params) => {
+    searchParams['genres.name'] = params;
+
+    const data = await api.movie.getFilmsList(searchParams);
+    setFilms(data.docs);
+  };
 
   return (
     <BaseLayout>
@@ -73,8 +76,9 @@ function FilmsList () {
         </div>
       </div>
       <div className={styles['films-list__filter']}>
-        <button className={styles['films-list__filter-item']}>С высоким рейтингом</button>
-        <button className={styles['films-list__filter-item']}>Вышедшие</button>
+        <button className={styles['films-list__filter-item']} onClick={() => sortFilms('драма')}>Драма</button>
+        <button className={styles['films-list__filter-item']} onClick={() => sortFilms('комедия')}>Комедия</button>
+        <button className={styles['films-list__filter-item']} onClick={() => sortFilms('биография')}>Биография</button>
       </div>
       <div className={styles['films-list__body']}>
         {!films && <Loader />}
