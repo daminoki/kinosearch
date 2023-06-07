@@ -48,6 +48,14 @@ function Film() {
     return filmTypes[value] || '';
   };
 
+  const getReleaseYears = (serial, movie) => {
+    if (serial && serial !== null) {
+      <span>{serial[0].start} - {serial[0].end}</span>;
+    } else {
+      <span>{movie}</span>;
+    }
+  };
+
   return (
     <BaseLayout>
       {!film && <Loader />}
@@ -58,7 +66,7 @@ function Film() {
           </div>
           <div className={styles.film__info}>
             <p className={styles.film__name}>{film.name}</p>
-            <p className={styles.film__period}>{getFilmType(film.type)}</p>
+            <p className={styles.film__period}>{getFilmType(film.type)}, {getReleaseYears(film.releaseYears, film.year)}</p>
           </div>
         </div>
       }

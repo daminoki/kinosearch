@@ -177,4 +177,9 @@
             color: var(--primary-text-color);
         }
     }
+
+    &__rate {
+        @include txt_16;
+        color: var(--primary-bg-color);
+    }
 }

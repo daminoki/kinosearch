@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 import api from '../../api';
 
@@ -9,6 +9,7 @@ import styles from './FilmsList.module.scss';
 
 function FilmsList () {
   const { state } = useLocation();
+  const navigate = useNavigate();
 
   const [films, setFilms] = React.useState(null);
 
@@ -33,6 +34,10 @@ function FilmsList () {
 
     fetchData();
   }, []);
+
+  const handleFilmClick = (id) => {
+    navigate(`/catalog/${id}`);
+  };
 
   const getValue = (value) => {
     return (value && value !== null) ? value : '-';
@@ -85,7 +90,7 @@ function FilmsList () {
         {films &&
           <ul className={styles['films-list__list']}>
             {films.map((film) => (
-              <li key={film.id} className={styles['films-list__item']}>
+              <li key={film.id} className={styles['films-list__item']} onClick={() => handleFilmClick(film.id)}>
                 <span className={styles['films-list__count']}>{films.indexOf(film) + 1}</span>
                 <div className={styles['films-list__info']}>
                   <div className={styles['films-list__poster']}>

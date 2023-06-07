@@ -1,4 +1,4 @@
-@import '../../assets/styles/mixins.scss';
+@import '../../assets/styles/mixins';
 
 .header {
     position: sticky;
@@ -20,8 +20,26 @@
         }
 
         display: flex;
+        align-items: center;
         justify-content: space-between;
         padding: 20px 40px;
+    }
+
+    &__search-icon {
+        @include pad {
+            right: 0;
+            left: unset;
+            cursor: pointer;
+        }
+
+        position: absolute;
+        top: 50%;
+        left: 10px;
+        transform: translateY(-50%);
+        background-image: url('../../../public/img/search-icon.svg');
+        background-size: 24px 24px;
+        width: 24px;
+        height: 24px;
     }
 
     &__search {
@@ -70,22 +88,5 @@
 
     &__search-container {
         position: relative;
-    }
-
-    &__search-icon {
-        @include pad {
-            right: 0;
-            left: unset;
-            cursor: pointer;
-        }
-
-        position: absolute;
-        top: 50%;
-        left: 10px;
-        transform: translateY(-50%);
-        background-image: url('../../../public/img/search-icon.svg');
-        background-size: 24px 24px;
-        width: 24px;
-        height: 24px;
     }
 }
