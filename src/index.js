@@ -10,6 +10,7 @@ import App from './App';
 import Films from './pages/Films';
 import FilmsList from './components/FilmsList';
 import Film from './components/Film';
+import SvgList from './components/SvgList';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -22,6 +23,7 @@ root.render(
         <Route path="/catalog/:id" element={<Film />} />
       </Routes>
     </BrowserRouter>
+    <SvgList />
   </React.StrictMode>
   ,
 );

@@ -27,5 +27,9 @@
         &:hover {
             color: var(--contrast-text-color);
         }
+
+        &_active {
+            color: var(--contrast-text-color);
+        }
     }
 }

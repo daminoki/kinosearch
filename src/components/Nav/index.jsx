@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 import styles from './Nav.module.scss';
 
@@ -9,16 +9,20 @@ function Nav() {
     <div className={styles.nav}>
       <ul className={styles.nav__list}>
         <li className={styles.nav__item}>
-          <Link to="/" className={styles.nav__link}>
-            <img src='/img/home-icon.svg' alt="Главная" width="24" height="24"></img>
+          <NavLink to="/" className={({ isActive }) => isActive ? `${styles.nav__link} ${styles.nav__link_active}` : `${styles.nav__link}`}>
+            <svg width="24" height="24">
+              <use xlinkHref="#home-icon"></use>
+            </svg>
             Главная
-          </Link>
+          </NavLink>
         </li>
         <li className={styles.nav__item}>
-          <Link to="/films" className={styles.nav__link}>
-            <img src='/img/film-icon.svg' alt="Фильмы" width="24" height="24"></img>
+          <NavLink to="/films" className={({ isActive }) => isActive ? `${styles.nav__link} ${styles.nav__link_active}` : `${styles.nav__link}`}>
+            <svg width="24" height="24">
+              <use xlinkHref="#film-icon"></use>
+            </svg>
             Фильмы
-          </Link>
+          </NavLink>
         </li>
       </ul>
     </div>
