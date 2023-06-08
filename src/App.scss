@@ -1,12 +1,1 @@
-@import './assets/styles/mixins.scss';
-
-.page {
-  @include container;
-
-  display: flex;
-
-  &__column {
-    background-color: var(--light-bg-color);
-    width: 80%;
-  }
-}
+@import './assets/styles/mixins';

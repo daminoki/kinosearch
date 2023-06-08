@@ -89,4 +89,24 @@
     &__search-container {
         position: relative;
     }
+
+    &__profile {
+        transition: color .2s ease-out;
+        cursor: pointer;
+        color: var(--primary-text-color);
+
+        &:hover {
+            color: var(--contrast-text-color);
+        }
+
+        &_active {
+            color: var(--contrast-text-color);
+        }
+    }
+
+    &__right {
+        display: flex;
+        gap: 20px;
+        align-items: center;
+    }
 }

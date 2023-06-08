@@ -11,6 +11,7 @@ import Films from './pages/Films';
 import FilmsList from './components/FilmsList';
 import Film from './components/Film';
 import SvgList from './components/SvgList';
+import Profile from './components/Profile';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -18,6 +19,7 @@ root.render(
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<App />} />
+        <Route path="/my-profile" element={<Profile />} />
         <Route path="/films" element={<Films />} />
         <Route path="/films/:id" element={<FilmsList />} />
         <Route path="/catalog/:id" element={<Film />} />

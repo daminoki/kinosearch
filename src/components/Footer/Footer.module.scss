@@ -1,0 +1,25 @@
+@import '../../assets/styles/mixins';
+
+.footer {
+    @include container;
+    background-color: var(--primary-bg-color);
+    padding-top: 20px;
+    padding-bottom: 20px;
+
+    &__years, &__author, &__link {
+        @include txt_16;
+        opacity: .5;
+        color: var(--primary-text-color);
+    }
+
+    &__author {
+        margin: 10px 0 0;
+    }
+
+    &__link {
+        transition: opacity .2s ease-out;
+        &:hover {
+            opacity: 1;
+        }
+    }
+}
