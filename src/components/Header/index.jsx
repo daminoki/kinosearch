@@ -15,6 +15,11 @@ const Header = () => {
             <input className={styles.header__search} type='search' placeholder='Название фильма, сериала, актера или режиссера' />
             <button className={styles['header__search-icon']}></button>
           </div>
+          <NavLink to='/my-movies' className={({ isActive }) => isActive ? `${styles.header__profile} ${styles.header__profile_active}` : `${styles.header__profile}`}>
+            <svg width="24" height="24">
+              <use xlinkHref="#bookmark-header"></use>
+            </svg>
+          </NavLink>
           <NavLink to='/my-profile' className={({ isActive }) => isActive ? `${styles.header__profile} ${styles.header__profile_active}` : `${styles.header__profile}`}>
             <svg width="24" height="24">
               <use xlinkHref="#profile-icon"></use>

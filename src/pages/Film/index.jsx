@@ -3,10 +3,9 @@ import { useParams } from 'react-router-dom';
 
 import api from '../../api';
 
-import BaseLayout from '../BaseLayout';
-import Loader from '../Loader';
-
 import styles from './Film.module.scss';
+import BaseLayout from '../../components/BaseLayout';
+import Loader from '../../components/Loader';
 
 function Film() {
   const [film, setFilm] = React.useState(null);
