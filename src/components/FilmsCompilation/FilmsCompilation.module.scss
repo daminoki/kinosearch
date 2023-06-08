@@ -1,4 +1,4 @@
-@import '../../assets/styles/mixins.scss';
+@import '../../assets/styles/mixins';
 
 .films-compilation {
     display: flex;
@@ -14,7 +14,7 @@
         padding: 10px;
 
         &:hover {
-            background-color: #D9D9D9;
+            background-color: var(--light-button-color);
         }
 
         img {

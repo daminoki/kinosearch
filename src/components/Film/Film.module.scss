@@ -4,6 +4,7 @@
     &__content {
         display: flex;
         gap: 20px;
+        background-color: var(--dark-bg-color);
         padding: 40px;
     }
 
@@ -16,6 +17,75 @@
             height: 100%;
             object-fit: cover;
         }
+    }
+
+    &__name { 
+        @include h2;
+        color: var(--primary-text-color);
+    }
+
+    &__period {
+        @include h2;
+        margin: 5px 0 0;
+        color: var(--primary-text-color);
+    }
+
+    &__short-desc {
+        @include txt_16;
+        margin: 10px 0 0;
+        color: var(--secondary-text-color);
+    }
+
+    &__favorites {
+        transition: all .2s ease-out;
+        border-radius: 50%;
+        background-color: var(--light-button-color);
+        cursor: pointer;
+        padding: 10px;
+
+        &:hover {
+            background-color: var(--secondary-bg-color);
+            color: var(--light-bg-color);
+        }
+    }
+
+    &__header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &__about {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin: 30px 0 0;
+    }
+
+    &__title {
+        @include h3;
+        margin: 0 0 10px;
+        color: var(--primary-text-color);
+        font-weight: 700;
+    }
+
+    &__row {
+        display: flex;
+        gap: 20px;
+        align-items: center;
+    }
+
+    &__value {
+        @include txt_16;
+        width: calc(50% - 10px);
+        color: var(--secondary-text-color);
+        font-weight: 500;
+    }
+
+    &__res {
+        @include txt_16;
+        width: calc(50% - 10px);
+        color: var(--secondary-text-color);
     }
 }
  

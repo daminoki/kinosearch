@@ -1,9 +1,9 @@
-@import '../../assets/styles/mixins.scss';
+@import '../../assets/styles/mixins';
 
 .films {
     &__title {
         @include h2;
-        border-bottom: 1px solid #D9D9D9;
+        border-bottom: 1px solid var(--light-button-color);
         padding: 40px 40px 20px;
         color: var(--primary-bg-color);
     }

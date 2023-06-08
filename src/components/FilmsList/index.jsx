@@ -19,7 +19,8 @@ function FilmsList () {
     top250: state.top250,
     'persons.id': state.person,
     top10: state.top10,
-    type: state.type
+    type: state.type,
+    sortField: 'rating.kp',
   };
 
   const fetchFilms = async () => {

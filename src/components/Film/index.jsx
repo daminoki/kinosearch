@@ -14,6 +14,7 @@ function Film() {
   
   const searchParams = {
     id: id,
+    'similarMovies.id': id,
   };
 
   const fetchFilm = async () => {
@@ -28,8 +29,6 @@ function Film() {
 
     fetchData();
   }, []);
-
-  console.log(film);
 
   const getFilmPoster = (value) => {
     return (value && value !== null) ? value.url : '../img/placeholder.png';
@@ -50,11 +49,34 @@ function Film() {
 
   const getReleaseYears = (serial, movie) => {
     if (serial && serial !== null) {
-      <span>{serial[0].start} - {serial[0].end}</span>;
+      return <span>{serial[0].start} - {serial[0].end}</span>;
     } else {
-      <span>{movie}</span>;
+      return <span>{movie}</span>;
     }
   };
+
+  const getValue = (value) => {
+    return (value && value !== null) ? value : '-';
+  };
+
+  const getFilmList = (array) => {
+    return (
+      array.map((country, index) => (
+        (index <= 1) ? <span key={index}>{(index === 1) ? ',' : ''} {country.name}</span> : ' '
+      ))
+    );
+  };
+
+  const getMovieLength = (movieLength) => {
+    if (isNaN(movieLength)) {
+      return '-';
+    }
+    const hours = Math.trunc(movieLength / 60);
+    const minutes = movieLength % 60;
+    return hours + 'ч. ' + minutes + 'м.';
+  };
+
+  console.log(film);
 
   return (
     <BaseLayout>
@@ -65,8 +87,43 @@ function Film() {
             <img src={getFilmPoster(film.poster)} alt={film.name}></img>
           </div>
           <div className={styles.film__info}>
-            <p className={styles.film__name}>{film.name}</p>
-            <p className={styles.film__period}>{getFilmType(film.type)}, {getReleaseYears(film.releaseYears, film.year)}</p>
+            <div className={styles.film__header}>
+              <p className={styles.film__name}>{film.name}</p>
+              <button className={styles.film__favorites}>
+                <svg width="24" height="24">
+                  <use xlinkHref="#bookmark-icon"></use>
+                </svg>
+              </button>
+            </div>
+            <p className={styles.film__period}>({getFilmType(film.type)}, {getReleaseYears(film.releaseYears, film.year)})</p>
+            <p className={styles['film__short-desc']}>{getValue(film.shortDescription)}</p>
+            <div className={styles.film__about}>
+              <p className={styles.film__title}>О сериале</p>
+              <div className={styles.film__row}>
+                <p className={styles.film__value}>Год производства</p>
+                <p className={styles.film__res}>{getValue(film.year)}</p>
+              </div>
+              <div className={styles.film__row}>
+                <p className={styles.film__value}>Страна</p>
+                <p className={styles.film__res}>{getFilmList(film.countries)}</p>
+              </div>
+              <div className={styles.film__row}>
+                <p className={styles.film__value}>Жанр</p>
+                <p className={styles.film__res}>{getFilmList(film.genres)}</p>
+              </div>
+              <div className={styles.film__row}>
+                <p className={styles.film__value}>Рейтинг Кинопоиска</p>
+                <p className={styles.film__res}>{getValue(film.rating.kp)}</p>
+              </div>
+              <div className={styles.film__row}>
+                <p className={styles.film__value}>Рейтинг IMDB</p>
+                <p className={styles.film__res}>{getValue(film.rating.imdb)}</p>
+              </div>
+              <div className={styles.film__row}>
+                <p className={styles.film__value}>Время</p>
+                <p className={styles.film__res}>{getMovieLength(getValue(film.movieLength))}</p>
+              </div>
+            </div>
           </div>
         </div>
       }

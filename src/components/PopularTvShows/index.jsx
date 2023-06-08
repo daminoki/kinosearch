@@ -17,6 +17,7 @@ const PopularTvShows = () => {
     limit: '15',
     type: 'tv-series',
     top250: '!null',
+    sortField: 'rating.kp'
   };
 
   const fetchShows = async () => {
