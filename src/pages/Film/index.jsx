@@ -13,7 +13,6 @@ function Film() {
   
   const searchParams = {
     id: id,
-    'similarMovies.id': id,
   };
 
   const fetchFilm = async () => {
